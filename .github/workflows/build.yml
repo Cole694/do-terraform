@@ -32,10 +32,10 @@ jobs:
         run: terraform init
       
       - name: Terraform Validate
+        env:
+          DO_TOKEN: ${{ secrets.DO_TOKEN }}
         id: validate
         run: terraform validate -no-color
-        with:
-          do_PAT: ${{ secrets.DO_TOKEN }}
 
       - name: Terraform Plan
         id: plan
