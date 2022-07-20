@@ -33,7 +33,7 @@ jobs:
       
       - name: Terraform Validate
         env:
-          DO_TOKEN: ${{ secrets.DO_TOKEN }}
+          token: ${{ secrets.DO_TOKEN }}
         id: validate
         run: terraform validate -no-color
 
