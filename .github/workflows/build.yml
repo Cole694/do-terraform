@@ -6,6 +6,11 @@ on:
       - master
   pull_request:
 
+env:
+  DO_TOKEN: ${{secrets.DO_TOKEN}}
+  DO_SPACES_ACCESS_KEY: ${{secrets.DO_SPACES_ACCESS_KEY}}
+  DO_SPACES_SECRET_KEY: ${{secrets.DO_PACESSECRET_KEY}}
+
 defaults: 
   run:
     working-directory: project
@@ -32,8 +37,6 @@ jobs:
         run: terraform init
       
       - name: Terraform Validate
-        env:
-          token: ${{ secrets.DO_TOKEN }}
         id: validate
         run: terraform validate -no-color
 
