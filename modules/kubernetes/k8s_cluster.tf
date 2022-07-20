@@ -1,4 +1,4 @@
-resource "digitalocean_kubernetes_cluster" "my_cluster" {
+resource "digitalocean_kubernetes_cluster" "k8s_demo" {
   name    = "web_cluster"
   region  = "fra1"
   version = "1.22.11-do.0"
