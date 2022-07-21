@@ -68,6 +68,9 @@ jobs:
         with:
           token: ${{ secrets.DO_TOKEN }}
 
+      - name: doctl init
+        run: doctl auth init -t ${{ secrets.DO_TOKEN }}
+
       - name: Terraform Init
         id: init
         run: terraform init
