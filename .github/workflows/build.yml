@@ -67,9 +67,6 @@ jobs:
         id: init
         run: terraform init
 
-      - name: doctl init
-        run: doctl auth init --t ${{secrets.DO_TOKEN}}
-
       - name: Terraform Apply
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
