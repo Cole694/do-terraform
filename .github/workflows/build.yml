@@ -62,11 +62,13 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-          DO_TOKEN: ${{secrets.DO_TOKEN}}
 
       - name: Terraform Init
         id: init
         run: terraform init
+
+      - name: doctl init
+        run: doctl auth init --t ${{secrets.DO_TOKEN}}
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
