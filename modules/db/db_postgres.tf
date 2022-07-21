@@ -4,7 +4,7 @@ resource "digitalocean_database_db" "web-app-db" {
 }
 
 resource "digitalocean_database_cluster" "web-app-db-clulster" {
-  name       = "k8s_demo_db_cluster"
+  name       = "k8s-demo-db-cluster"
   engine     = "pg"
   version    = "11"
   size       = "db-s-1vcpu-1gb"
