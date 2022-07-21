@@ -6,6 +6,10 @@ on:
       - master
   pull_request:
 
+env:
+  do_token: ${{secrets.DO_TOKEN}}
+  DO_SPACES_ACCESS_KEY: ${{secrets.DO_SPACES_ACCESS_KEY}}
+  DO_SPACES_SECRET_KEY: ${{secrets.DO_SPACES_SECRET_KEY}}
 
 defaults: 
   run:
