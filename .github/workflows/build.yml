@@ -65,10 +65,10 @@ jobs:
 
       - name: Provide doctl
         uses: digitalocean/action-doctl@v2
-          with: 
-            DO_TOKEN: ${{secrets.DO_TOKEN}}
-            DO_SPACES_ACCESS_KEY: ${{secrets.DO_SPACES_ACCESS_KEY}}
-            DO_SPACES_SECRET_KEY: ${{secrets.DO_SPACES_SECRET_KEY}}
+        with: 
+          DO_TOKEN: ${{secrets.DO_TOKEN}}
+          DO_SPACES_ACCESS_KEY: ${{secrets.DO_SPACES_ACCESS_KEY}}
+          DO_SPACES_SECRET_KEY: ${{secrets.DO_SPACES_SECRET_KEY}}
 
       - name: Terraform Init
         id: init
