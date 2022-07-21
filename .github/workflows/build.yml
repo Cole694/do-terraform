@@ -66,6 +66,11 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init
+      
+      - name: Provide doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DO_TOKEN }}
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
