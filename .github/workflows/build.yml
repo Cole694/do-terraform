@@ -51,6 +51,8 @@ jobs:
   
   deploy:
     needs: terraform
+    env:
+      DO_TOKEN: ${{secrets.DO_TOKEN}}
     runs-on: ubuntu-latest
     environment:
       name: terraform-workflow-approval
