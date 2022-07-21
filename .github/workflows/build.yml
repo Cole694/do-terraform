@@ -69,8 +69,6 @@ jobs:
       
       - name: Provide doctl
         uses: digitalocean/action-doctl@v2
-        with:
-          token: ${{ secrets.DO_TOKEN }}
 
       - name: Terraform Apply
         run: terraform apply -auto-approve -input=false
