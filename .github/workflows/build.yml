@@ -6,6 +6,10 @@ on:
       - master
   pull_request:
 
+env:  
+  DO_TOKEN: ${{secrets.DO_TOKEN}}
+  DO_SPACES_ACCESS_KEY: ${{secrets.DO_SPACES_ACCESS_KEY}}
+  DO_SPACES_SECRET_KEY: ${{secrets.DO_SPACES_SECRET_KEY}}
 
 defaults: 
   run:
@@ -71,7 +75,5 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: terraform apply -auto-approve 
-        env:  
+        with:
           DO_TOKEN: ${{secrets.DO_TOKEN}}
-          DO_SPACES_ACCESS_KEY: ${{secrets.DO_SPACES_ACCESS_KEY}}
-          DO_SPACES_SECRET_KEY: ${{secrets.DO_SPACES_SECRET_KEY}}
