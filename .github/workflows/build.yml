@@ -36,7 +36,9 @@ jobs:
         id: init
         run: terraform init
       
-      
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
 
       - name: Terraform Plan
         id: plan
@@ -72,6 +74,7 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        run: terraform apply -auto-approve 
-        env:
-          DO_TOKEN: ${{secrets.DO_TOKEN}}
+        run: |
+          terraform apply -auto-approve 
+          ${{secrets.DO_TOKEN}}
+      
